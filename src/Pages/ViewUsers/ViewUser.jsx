@@ -32,7 +32,7 @@ function ViewUser() {
     const deleteUser = (id) => {
         const logout = window.confirm("Are you sure to delete user?");
         if (logout) {
-            dispatch(ReqestDelete(id, renderUserview));
+            dispatch(ReqestDelete(id,renderUserview));
             fetch()
         }
 
@@ -42,7 +42,7 @@ function ViewUser() {
     }, [])
     //---------------------------------------------Fetch User----------------------------------------------------------------------------------------
     const fetch = () => {
-        dispatch(GetUser());
+        dispatch(GetUser(renderUserview));
     }
 
     if (Loading.loading) {

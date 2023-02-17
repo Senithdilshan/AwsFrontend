@@ -2,9 +2,9 @@ export const REQ_DELETE = "REQ_DELETE";
 export const SUCCESS_DELETE = "SUCCESS_DELETE";
 export const FAILD_DELETE = "FAILD_DELETE";
 
-export const ReqestDelete= (id,callback,callbackFaild) => ({
+export const ReqestDelete= (id,callback) => ({
     type: REQ_DELETE,
-    payload:{id,callback,callbackFaild}
+    payload:{id,callback}
 });
 
 export const SuccessDelete = (posts) => ({

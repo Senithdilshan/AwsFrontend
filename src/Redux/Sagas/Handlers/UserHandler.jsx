@@ -36,7 +36,7 @@ export function* GetallHandler(action) {
         yield put(SuccessUser(data))
     } catch (error) {
         yield put(FaildUser(error));
-        throw new Error(error);
+        action.payload.callback();
     }
 }
 
@@ -65,7 +65,6 @@ export function* DeleteHandler(action) {
         action.payload.callback();
     } catch (error) {
         window.alert('User Delete failed!');
-        yield put(FaildDelete(error));
-        action.payload.callback();
+        yield put(FaildDelete(error)); 
     }
 }
