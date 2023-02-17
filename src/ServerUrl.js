@@ -1,0 +1,1 @@
+export const serverUrl = 'https://1hbl8ixqpg.execute-api.ap-northeast-1.amazonaws.com/dev'
