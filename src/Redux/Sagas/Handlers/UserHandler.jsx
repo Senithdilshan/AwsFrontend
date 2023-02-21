@@ -62,6 +62,7 @@ export function* DeleteHandler(action) {
         const { data } = response;
         yield put(SuccessDelete(data))
         window.alert('User Delete Success!')
+        action.payload.fetchcallback();
         action.payload.callback();
     } catch (error) {
         window.alert('User Delete failed!');

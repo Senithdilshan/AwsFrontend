@@ -15,6 +15,11 @@ function ViewUser() {
     const GetAllData = useSelector((state) => ({ ...state.getAllUsers }));
     const isLog = useSelector((state) => ({ ...state.user.posts }));
 
+        //---------------------------------------------Fetch User----------------------------------------------------------------------------------------
+        const fetch = () => {
+            dispatch(GetUser(renderUserview));
+        }
+
     //----------------------------------------------Logout-------------------------------------------------------------------------------
     const logout = () => {
         const logout = window.confirm("Are you sure you want to log out?");
@@ -32,18 +37,14 @@ function ViewUser() {
     const deleteUser = (id) => {
         const logout = window.confirm("Are you sure to delete user?");
         if (logout) {
-            dispatch(ReqestDelete(id,renderUserview));
-            fetch()
+            dispatch(ReqestDelete(id,renderUserview,fetch));
         }
 
     }
     useEffect(() => {
         fetch()
     }, [])
-    //---------------------------------------------Fetch User----------------------------------------------------------------------------------------
-    const fetch = () => {
-        dispatch(GetUser(renderUserview));
-    }
+
 
     if (Loading.loading) {
 
@@ -95,6 +96,7 @@ function ViewUser() {
                 </div>
                 <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', marginTop: '20px' }}>
                     <button className="btn btn-danger" onClick={logout}><AiIcons.AiOutlineLogout /> Log Out</button>
+                    {/* <Link to={"/signIn"}><button className="btn btn-primary" style={{marginLeft:'5px'}}><AiIcons.AiOutlineUserAdd /> Add User</button></Link> */}
                 </div>
 
             </>
